@@ -3,16 +3,22 @@ package tests;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
+import static tests.BaseTest.driver;
+import static tests.BaseTest.wait;
 
 public class EnterWix {
-
     @Test
     public void enterWixSite() {
+        // Constant definition
         final String WIX = "Wix";
 
-        BaseTest.driver.findElement(By.name("q")).sendKeys(WIX);
-        BaseTest.driver.findElement(By.cssSelector(".FPdoLc [name = 'btnK']")).click();
-        BaseTest.wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[href='https://www.wix.com/']"))).click();
-        BaseTest.wait.withMessage("Page loaded properly").until(ExpectedConditions.elementToBeClickable(By.cssSelector("[title='logo_title']")));
+        // Code section
+        driver.findElement(By.name("q")).sendKeys(WIX);
+        driver.findElement(By.cssSelector(".FPdoLc [name = 'btnK']")).click();
+
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[href='https://www.wix.com/']"))).click();
+
+        wait.withMessage("Page loaded properly").until
+                (ExpectedConditions.elementToBeClickable(By.cssSelector("[title='logo1_title']")));
     }
 }

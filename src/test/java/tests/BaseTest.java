@@ -9,7 +9,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 public class BaseTest {
-
     static {
         WebDriverManager.chromedriver()
                 .browserVersion("88")
