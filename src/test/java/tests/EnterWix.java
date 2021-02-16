@@ -13,12 +13,13 @@ public class EnterWix {
         final String WIX = "Wix";
 
         // Code section
+
         driver.findElement(By.name("q")).sendKeys(WIX);
         driver.findElement(By.cssSelector(".FPdoLc [name = 'btnK']")).click();
 
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[href='https://www.wix.com/']"))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[href='https://www.wix.com/']"))).click();
 
         wait.withMessage("Page loaded properly").until
-                (ExpectedConditions.elementToBeClickable(By.cssSelector("[title='logo1_title']")));
+                (ExpectedConditions.elementToBeClickable(By.cssSelector("[title='logo_title']")));
     }
 }
