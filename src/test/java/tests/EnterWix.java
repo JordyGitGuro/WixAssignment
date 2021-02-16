@@ -9,17 +9,15 @@ import static tests.BaseTest.wait;
 public class EnterWix {
     @Test
     public void enterWixSite() {
-        // Constant definition
         final String WIX = "Wix";
-
-        // Code section
 
         driver.findElement(By.name("q")).sendKeys(WIX);
         driver.findElement(By.cssSelector(".FPdoLc [name = 'btnK']")).click();
 
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[href='https://www.wix.com/']"))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[href='https://www.wix.com/']")))
+                .click();
 
-        wait.withMessage("Page loaded properly").until
-                (ExpectedConditions.elementToBeClickable(By.cssSelector("[title='logo_title']")));
+        wait.withMessage("Page didn't load properly").until
+                (ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[title='logo_title']")));
     }
 }
